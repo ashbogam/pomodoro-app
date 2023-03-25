@@ -5,8 +5,8 @@ import bgImage from '../assets/bg.jpeg'
     <div class="pomodoro-timer">
         <div class="pomodoro-timer__background">
             <div v-if="!isRunning" class="pomodoro-timer__buttons">
-                <button @click="startSession(2, true)" class="pomodoro-timer__button pomodoro-timer__button--25">Start 25 min session</button>
-                <button @click="startSession(5, true)" class="pomodoro-timer__button pomodoro-timer__button--50">Start 50 min session</button>
+                <button @click="startSession(25, true)" class="pomodoro-timer__button pomodoro-timer__button--25">Start 25 min session</button>
+                <button @click="startSession(50, true)" class="pomodoro-timer__button pomodoro-timer__button--50">Start 50 min session</button>
             </div>
             <div class="pomodoro-timer__counter">
                 <h2 style='color:black;'>{{ time }}</h2>
@@ -54,15 +54,15 @@ export default {
                 if (seconds === 0) {
                     clearInterval(this.timer);
                     this.isRunning = false;
-                    if(this.minutes == 2){
-                        this.time = "01:00";
+                    if(this.minutes == 25){
+                        this.time = "05:00";
                         if(this.isSession) {this.sessionCount++;}
-                        this.startSession(1, false);
+                        this.startSession(5, false);
                         
-                    } else if (this.minutes === 5){
-                        this.time = "03:00";
+                    } else if (this.minutes === 50){
+                        this.time = "10:00";
                         if(this.isSession) {this.sessionCount++;}
-                        this.startSession(3, false);
+                        this.startSession(10, false);
 
                     } 
                 }
